@@ -100,7 +100,7 @@ export default function Home() {
         </h1>
         <div ref={descriptionDivRef} className="backdrop-blur-sm bg-white/40 p-6 rounded-lg shadow-lg">
           <p ref={descriptionRef} className="text-lg text-gray-700 max-w-2xl">
-            Descubra uma nova forma de aprender Biologia! Atividades interativas, quizzes, e recursos inovadores para estudantes e professores.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est, ducimus cupiditate, fugit odit illum unde molestias possimus similique ad veritatis expedita porro, quod aliquam quidem aspernatur nisi excepturi nemo dignissimos.
           </p>
         </div>
         <div ref={btnRef} className="mt-8">
@@ -115,9 +115,9 @@ export default function Home() {
         {/* Bloco 1 */}
         <div className="grid md:grid-cols-2 gap-20 items-center ">
           <div className="scroll-item-left">
-            <h2 className="text-2xl font-bold text-blue-700 mb-2">Quizzes Interativos</h2>
+            <h2 className="text-2xl font-bold text-blue-700 mb-2">Titulo</h2>
             <p className=" text-gray-600">
-              Teste seus conhecimentos com quizzes dinâmicos e receba feedback instantâneo.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint accusamus, nostrum, ab quam iusto atque ut asperiores, quasi non similique aspernatur repellat id exercitationem quos? Quod molestiae nisi error mollitia?
             </p>
           </div>
           <Image
@@ -141,9 +141,9 @@ export default function Home() {
             onClick={() => openImageModal("/bio.jpg")}
           />
           <div className="scroll-item-right">
-            <h2 className="text-2xl font-bold text-green-700 mb-2">Atividades Práticas</h2>
+            <h2 className="text-2xl font-bold text-green-700 mb-2">titulo</h2>
             <p className="text-gray-600">
-              Exercícios práticos para fixar o conteúdo e desenvolver habilidades científicas.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, voluptate iste ullam iusto error sapiente, odio rerum repudiandae atque libero non et! Qui tempora, dicta enim fugit cumque earum harum.
             </p>
           </div>
         </div>
@@ -153,9 +153,9 @@ export default function Home() {
         {/* Bloco 1 */}
         <div className="grid md:grid-cols-2 gap-20 items-center ">
           <div className="scroll-item-left">
-            <h2 className="text-2xl font-bold text-blue-700 mb-2">Quizzes Interativos</h2>
+            <h2 className="text-2xl font-bold text-blue-700 mb-2">Titulo</h2>
             <p className=" text-gray-600">
-              Teste seus conhecimentos com quizzes dinâmicos e receba feedback instantâneo.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint accusamus, nostrum, ab quam iusto atque ut asperiores, quasi non similique aspernatur repellat id exercitationem quos? Quod molestiae nisi error mollitia?
             </p>
           </div>
           <Image
@@ -179,9 +179,9 @@ export default function Home() {
             onClick={() => openImageModal("/bio.jpg")}
           />
           <div className="scroll-item-right">
-            <h2 className="text-2xl font-bold text-green-700 mb-2">Atividades Práticas</h2>
+            <h2 className="text-2xl font-bold text-green-700 mb-2">titulo</h2>
             <p className="text-gray-600">
-              Exercícios práticos para fixar o conteúdo e desenvolver habilidades científicas.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, voluptate iste ullam iusto error sapiente, odio rerum repudiandae atque libero non et! Qui tempora, dicta enim fugit cumque earum harum.
             </p>
           </div>
         </div>
