@@ -1,103 +1,213 @@
+'use client';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 import Image from "next/image";
+import { useRef, useLayoutEffect, useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState("");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const openImageModal = (src: string) => {
+    setModalImage(src);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalImage("");
+  };
+
+
+  const titleRef = useRef(null);
+  const descriptionDivRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const btnRef = useRef(null);
+
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    // animação da Hero
+    const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.out" } });
+
+    const title = titleRef.current;
+    const descriptionDiv = descriptionDivRef.current;
+    const description = descriptionRef.current;
+    const btn = btnRef.current;
+
+    if (title && descriptionDiv && description) {
+      tl.from(title, { y: 100, opacity: 0 }, 0)
+        .from(descriptionDiv, { y: 100, opacity: 0 }, "-=0.3")
+        .from(description, { y: 50, opacity: 0 }, "-=0.3")
+        .from(btn, { y: 50, opacity: 0 }, "-=0.3")
+    }
+
+    // animação do scroll
+
+    gsap.utils.toArray(".scroll-item-left").forEach((el) => {
+      const element = el as Element;
+      gsap.from(element, {
+        opacity: 0,
+        x: -200,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 80%",
+          toggleActions: "play reverse play reverse",
+
+        },
+      });
+    });
+
+    gsap.utils.toArray(".scroll-item-right").forEach((el) => {
+      const element = el as Element;
+      gsap.from(element, {
+        opacity: 0,
+        x: 200,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 80%",
+          toggleActions: "play reverse play reverse",
+
+        },
+      });
+    });
+
+
+
+
+  }, []);
+
+  return (
+    <div className=" min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-200 via-blue-100 to-purple-200 px-4">
+
+      <div
+        className="absolute inset-0 z-0 bg-[url('/fundo.svg')] bg-cover bg-center opacity-20 pointer-events-none"
+        aria-hidden="true"
+      />
+
+
+      {/* Hero Section */}
+      <section className="w-full max-w-4xl flex flex-col items-center justify-evenly text-center mb-10 h-screen ">
+        <h1 ref={titleRef} className="text-7xl p-4 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 mb-4">
+          Atividade de Biologia
+        </h1>
+        <div ref={descriptionDivRef} className="backdrop-blur-sm bg-white/40 p-6 rounded-lg shadow-lg">
+          <p ref={descriptionRef} className="text-lg text-gray-700 max-w-2xl">
+            Descubra uma nova forma de aprender Biologia! Atividades interativas, quizzes, e recursos inovadores para estudantes e professores.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <div ref={btnRef} className="mt-8">
+          <Link href="#explore" className="bg-blue-600 text-white px-6 py-3 backdrop-opacity-100 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+            Explore Agora
+          </Link>
+        </div>
+      </section>
+
+      {/* Explore Section */}
+      <section id="explore" className="w-full max-w-5xl flex flex-col justify-around space-y-16 pt-3 mb-16 h-screen">
+        {/* Bloco 1 */}
+        <div className="grid md:grid-cols-2 gap-20 items-center ">
+          <div className="scroll-item-left">
+            <h2 className="text-2xl font-bold text-blue-700 mb-2">Quizzes Interativos</h2>
+            <p className=" text-gray-600">
+              Teste seus conhecimentos com quizzes dinâmicos e receba feedback instantâneo.
+            </p>
+          </div>
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/bio.jpg"
+            alt=""
+            width={100}
+            height={100}
+            className="rounded-xl w-full h-90 object-cover scroll-item-left"
+            onClick={() => openImageModal("/bio.jpg")}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        </div>
+
+        {/* Bloco 2 */}
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src="/bio.jpg"
+            alt=""
+            width={100}
+            height={100}
+            className="rounded-xl w-full h-90 object-cover scroll-item-right"
+            onClick={() => openImageModal("/bio.jpg")}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <div className="scroll-item-right">
+            <h2 className="text-2xl font-bold text-green-700 mb-2">Atividades Práticas</h2>
+            <p className="text-gray-600">
+              Exercícios práticos para fixar o conteúdo e desenvolver habilidades científicas.
+            </p>
+          </div>
+        </div>
+
+      </section>
+      <section className="w-full max-w-5xl flex flex-col justify-around space-y-16 pt-3 mb-16 h-screen">
+        {/* Bloco 1 */}
+        <div className="grid md:grid-cols-2 gap-20 items-center ">
+          <div className="scroll-item-left">
+            <h2 className="text-2xl font-bold text-blue-700 mb-2">Quizzes Interativos</h2>
+            <p className=" text-gray-600">
+              Teste seus conhecimentos com quizzes dinâmicos e receba feedback instantâneo.
+            </p>
+          </div>
           <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+            src="/bio.jpg"
+            alt=""
+            width={100}
+            height={100}
+            className="rounded-xl w-full h-90 object-cover scroll-item-left"
+            onClick={() => openImageModal("/bio.jpg")}
           />
-          Go to nextjs.org →
-        </a>
+        </div>
+
+        {/* Bloco 2 */}
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <Image
+            src="/bio.jpg"
+            alt=""
+            width={100}
+            height={100}
+            className="rounded-xl w-full h-90 object-cover scroll-item-right"
+            onClick={() => openImageModal("/bio.jpg")}
+          />
+          <div className="scroll-item-right">
+            <h2 className="text-2xl font-bold text-green-700 mb-2">Atividades Práticas</h2>
+            <p className="text-gray-600">
+              Exercícios práticos para fixar o conteúdo e desenvolver habilidades científicas.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+
+      {/* Footer */}
+      <footer className="w-full text-center text-gray-500 py-6 mt-5">
+        © {new Date().getFullYear()} BioAtv. Todos os direitos reservados.
       </footer>
+
+      {modalOpen && (
+        <div
+          className="fixed inset-0 backdrop-blur-sm bg-opacity-4 flex items-center justify-center z-50"
+          onClick={closeModal}
+        >
+          <Image
+            width={500}
+            height={500}
+            src={modalImage}
+            alt="Imagem ampliada"
+            className="max-w-3xl max-h-[90vh] rounded-lg shadow-lg"
+          />
+        </div>
+      )}
     </div>
   );
 }
