@@ -85,7 +85,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className=" min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-200 via-blue-100 to-purple-200 px-4">
+    <div className=" min-h-screen flex flex-col items-center justify-center bg-[#a3b18a] px-4">
 
       <div
         className="absolute inset-0 z-0 bg-[url('/fundo.svg')] bg-cover bg-center opacity-20 pointer-events-none"
@@ -95,7 +95,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="w-full max-w-4xl flex flex-col items-center justify-evenly text-center mb-10 h-screen ">
-        <h1 ref={titleRef} className="text-7xl p-4 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 mb-4">
+        <h1 ref={titleRef} className="text-7xl p-4 font-extrabold" style={{ color: "#3a5a40" }}>
           Atividade de Biologia
         </h1>
         <div ref={descriptionDivRef} className="backdrop-blur-sm bg-white/40 p-6 rounded-lg shadow-lg">
@@ -115,9 +115,9 @@ export default function Home() {
         {/* Bloco 1 */}
         <div className="grid md:grid-cols-2 gap-20 items-center ">
           <div className="scroll-item-left">
-            <h2 className="text-2xl font-bold text-blue-700 mb-2">Titulo</h2>
+            <h2 className="text-2xl font-bold text-blue-700 mb-2">Uncaria tomentosa (unha-de-gato)</h2>
             <p className=" text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint accusamus, nostrum, ab quam iusto atque ut asperiores, quasi non similique aspernatur repellat id exercitationem quos? Quod molestiae nisi error mollitia?
+              É uma planta medicinal da Amazônia peruana, conhecida popularmente como “unha-de-gato” por seus espinhos curvos.
             </p>
           </div>
           <Image
@@ -141,9 +141,9 @@ export default function Home() {
             onClick={() => openImageModal("/bio.jpg")}
           />
           <div className="scroll-item-right">
-            <h2 className="text-2xl font-bold text-green-700 mb-2">titulo</h2>
+            <h2 className="text-2xl font-bold text-green-700 mb-2">Veronica officinalis L. (Verônica) </h2>
             <p className="text-gray-600">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, voluptate iste ullam iusto error sapiente, odio rerum repudiandae atque libero non et! Qui tempora, dicta enim fugit cumque earum harum.
+              É tida como uma das primeiras plantas medicinais que se tem notícia e passou a ser conhecida como a “erva dos leprosos”.
             </p>
           </div>
         </div>
@@ -153,9 +153,9 @@ export default function Home() {
         {/* Bloco 1 */}
         <div className="grid md:grid-cols-2 gap-20 items-center ">
           <div className="scroll-item-left">
-            <h2 className="text-2xl font-bold text-blue-700 mb-2">Titulo</h2>
+            <h2 className="text-2xl font-bold text-blue-700 mb-2">Peumus boldus (Boldo) </h2>
             <p className=" text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint accusamus, nostrum, ab quam iusto atque ut asperiores, quasi non similique aspernatur repellat id exercitationem quos? Quod molestiae nisi error mollitia?
+              O boldo pode ser consumido na forma de cápsulas, chás, sucos ou tinturas usando as folhas frescas de boldo 
             </p>
           </div>
           <Image
@@ -179,9 +179,9 @@ export default function Home() {
             onClick={() => openImageModal("/bio.jpg")}
           />
           <div className="scroll-item-right">
-            <h2 className="text-2xl font-bold text-green-700 mb-2">titulo</h2>
+            <h2 className="text-2xl font-bold text-green-700 mb-2">Euterpe oleracea (Açaizeiro) </h2>
             <p className="text-gray-600">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, voluptate iste ullam iusto error sapiente, odio rerum repudiandae atque libero non et! Qui tempora, dicta enim fugit cumque earum harum.
+              O açaí é uma palmeira muito comum na região da Amazônia que produz um fruto bacáceo de cor roxa, muito utilizado na confecção de alimentos e bebidas.  
             </p>
           </div>
         </div>
