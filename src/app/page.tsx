@@ -195,6 +195,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="w-full text-center py-6 mt-5" style={{ color: "#3a5a40" }}>
         © {new Date().getFullYear()} BioAtv. Todos os direitos reservados.
+        <br />
+        Feito por Pedro Vitor,Sarah, João Pedro, Maria Isabela e Heitor
       </footer>
 
  {modalOpen && (
