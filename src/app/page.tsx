@@ -128,8 +128,8 @@ export default function Home() {
           <Image
             src="/img1.png"
             alt=""
-            width={100}
-            height={100}
+            width={400}
+            height={400}
             className="rounded-xl w-full h-60 sm:h-90 object-cover scroll-item-left cursor-pointer"
             onClick={() => openImageModal("/img1.png", <UnhaDeGatoInfo />)}
           />
@@ -140,8 +140,8 @@ export default function Home() {
           <Image
             src="/img2.png"
             alt=""
-            width={100}
-            height={100}
+            width={400}
+            height={400}
             className="rounded-xl w-full h-60 sm:h-90 object-cover scroll-item-right cursor-pointer"
             onClick={() => openImageModal("/img2.png", <VeronicaOfficinalisInfo />)}
           />
@@ -166,8 +166,8 @@ export default function Home() {
           <Image
             src="/img3.png"
             alt=""
-            width={100}
-            height={100}
+            width={400}
+            height={400}
             className="rounded-xl w-full h-60 sm:h-90 object-cover scroll-item-left cursor-pointer"
             onClick={() => openImageModal("/img3.png", <BoldoInfo />)}
           />
@@ -178,8 +178,8 @@ export default function Home() {
           <Image
             src="/img4.png"
             alt=""
-            width={100}
-            height={100}
+            width={400}
+            height={400}
             className="rounded-xl w-full h-60 sm:h-90 object-cover scroll-item-right cursor-pointer"
             onClick={() => openImageModal("/img4.png", <AcaiInfo />)}
           />
@@ -193,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full text-center text-black py-6 mt-5">
+      <footer className="w-full text-center py-6 mt-5" style={{ color: "#3a5a40" }}>
         © {new Date().getFullYear()} BioAtv. Todos os direitos reservados.
       </footer>
 
