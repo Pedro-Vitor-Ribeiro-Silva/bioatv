@@ -102,7 +102,7 @@ export default function Home() {
             ref={descriptionRef}
             className="text-base sm:text-lg text-gray-700 max-w-2xl"
           >
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est, ducimus cupiditate, fugit odit illum unde molestias possimus similique ad veritatis expedita porro, quod aliquam quidem aspernatur nisi excepturi nemo dignissimos.
+            Esse site aborda quatro plantas medicinais — Unha-de-gato, Verônica, Boldo e Açaizeiro — destacando seus compostos bioativos, usos terapêuticos, propriedades, importância tradicional e científica e necessidade de conservação ambiental.
           </p>
         </div>
         <div ref={btnRef} className="mt-6 sm:mt-8">
@@ -196,7 +196,7 @@ export default function Home() {
       <footer className="w-full text-center py-6 mt-5" style={{ color: "#3a5a40" }}>
         © {new Date().getFullYear()} BioAtv. Todos os direitos reservados.
         <br />
-        Feito por Pedro Vitor,Sarah, João Pedro, Maria Isabela e Heitor
+        Feito por Pedro Vitor,Sarah, João Pedro, Maria Isabela, Heitor e Paulo.
       </footer>
 
  {modalOpen && (
